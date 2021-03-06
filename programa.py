@@ -35,7 +35,7 @@ while opcion != 6:
             print (var)
         print ()
         esta = input("Introduce el nombre de la estadistica, de la cual, quieres saber que campeón la tiene más elevada: ")
-        print ("El campón con el",esta,"más elevado es: ",esta_maselevada(fich,esta))
+        print ("El campón con el",esta,"más elevado es: ",esta_maselevada(fich,esta.lower()))
         print()
 
     opcion = menu()

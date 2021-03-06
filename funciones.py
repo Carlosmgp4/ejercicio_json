@@ -10,6 +10,7 @@ def menu():
     print ("3. Mostrar descripción de un campeón")
     print ("4. Mostrar que campeones pertenecen a un tag")
     print ("5. Mostrar campeón con la estadística mas elevada")
+    print ("6. Salir del programa")
     opcion = int(input("Que acción le gustaría realizar: "))
     return opcion
 
@@ -56,10 +57,13 @@ def lista_estadis(fich):
     return lista
 
 def esta_maselevada(fich,nom):
-    lista = []
-    cont = 0
+    cont = -2
     for var in fich:
-        if int(var.get("stats").get(nom)) > cont:
-            cont = int(var.get("stats").get("hp"))
+        if float(var.get("stats").get(nom)) > cont:
+            cont = float(var.get("stats").get(nom))
             name = var.get("name")
-    return name
+
+    if cont == 0:
+        return "No hay ningún personaje con puntuación en esta estadística."
+    else:
+        return name
