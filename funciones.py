@@ -28,7 +28,38 @@ def contar_tag(fich):
     return lista
 
 def mostrar_descrip(fich,buscar):
-    lista = []
     for var in fich:
         if var.get("name") == buscar:
             return print (var.get("description"))
+
+def lista_tag(fich):
+    lista = []
+    for var in fich:
+        for t in var.get("tags"):
+            if t not in lista:
+                lista.append(t)
+    return lista
+
+def tag_campeones(fich,tag):
+    lista = []
+    for var in fich:
+        if tag in var.get("tags"):
+            lista.append(var.get("name"))
+    return lista
+
+def lista_estadis(fich):
+    lista = []
+    for var in fich:
+        for e in var.get("stats").keys():
+            if e not in lista:
+                lista.append(e)
+    return lista
+
+def esta_maselevada(fich,nom):
+    lista = []
+    cont = 0
+    for var in fich:
+        if int(var.get("stats").get(nom)) > cont:
+            cont = int(var.get("stats").get("hp"))
+            name = var.get("name")
+    return name
